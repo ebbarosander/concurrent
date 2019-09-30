@@ -1,5 +1,10 @@
 package skeletonCodeAssgnmt2;
-
+/**
+* class containing methods and integers representing the score, how many missed words and how many caught words
+* 
+* @author Ebba Rosander
+* 
+*/
 public class Score {
 	
 	private int missedWords;

@@ -13,7 +13,13 @@ import java.util.Scanner;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
 //model is separate from the view.
-
+/**
+* class working as the controller
+* Contains methods to set up GUI, read in file and the main method
+* 
+* @author Ebba Rosander
+* 
+*/
 public class WordApp{
 //shared variables
 	static int noWords=4;
@@ -177,13 +183,14 @@ public static String[] getDictFromFile(String filename) {
 
 	}
 
-
+//changes the interface lower part if a word is missed
 public static void setmissedWord() {
 	score.missedWord();
 	missed.setText("Missed: "+score.getMissed()+ "  ");
 	scr.setText("Score:" + score.getScore()+ "    ");
 		}
 
+//called upon when start button is pushed and initiated the threads and by doing so starting the program
 private static void start() {
 	
 	Thread t=new Thread(w);
@@ -194,6 +201,7 @@ private static void start() {
 	tw.start();
 }}
 
+//called upon when end button is pushed and end the game
 public static void end() {
 	for(int i =0; i<words.length;i++) {
 		  words[i].resetWord();
@@ -202,6 +210,7 @@ public static void end() {
 	  
 }
 
+//called upon when the word limit is reached and ends the game 
 public static void endLimit() {
 	score.resetScore();	
 	caught.setText("Caught: "+score.getCaught()+ "  ");
@@ -212,6 +221,7 @@ public static void endLimit() {
 	w.limitReach();
 }
 
+//Main method run when program starts
 public static void main(String[] args) {
     	
 		//deal with command line arguments

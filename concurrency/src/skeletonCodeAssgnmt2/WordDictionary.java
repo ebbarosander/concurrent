@@ -1,5 +1,11 @@
 package skeletonCodeAssgnmt2;
-
+/**
+* Class working as the model
+* Contains methods and strings representing the dictionary used for falling words
+* 
+* @author Ebba Rosander
+* 
+*/
 public class WordDictionary {
 	int size;
 	static String [] theDict= {"litchi","banana","apple","mango","pear","orange","strawberry",

@@ -1,5 +1,11 @@
 package skeletonCodeAssgnmt2;
-
+/**
+* Class working as the model
+* Contains methods and variables representing one word. 
+* Is responsible for the calculations of when and if a word should fall
+* @author Ebba Rosander
+* 
+*/
 public class WordRecord implements Runnable {
 	private String text;
 	private  int x;
@@ -34,7 +40,7 @@ public class WordRecord implements Runnable {
 		this.maxY=maxY;
 	}
 	
-// all getters and setters must be synchronized
+
 	public synchronized  void setY(int y) {
 		if (y>maxY) {
 			y=maxY;
@@ -80,12 +86,10 @@ public class WordRecord implements Runnable {
 		text=dict.getNewWord();
 		dropped=false;
 		fallingSpeed=(int)(Math.random() * (maxWait-minWait)+minWait); 
-		//System.out.println(getWord() + " falling speed = " + getSpeed());
 
 	}
 	
 	public synchronized boolean matchWord(String typedText) {
-		//System.out.println("Matching against: "+text);
 		if (typedText.equals(this.text)) {
 			resetWord();
 			return true;
@@ -103,11 +107,11 @@ public class WordRecord implements Runnable {
 		return dropped;
 	}
 
+	//starts when threads are initiated and runs for as long gameRunning=true, makes to calculations on what to do with thread
 	public void run() {
 		
 
 		while (WordApp.gameRunning) {
-			 //not 5 but one of arg taken in when starting game
 			if(WordApp.score.getCaught()+WordApp.score.getMissed()>=WordApp.totalWords) {
 				WordApp.endLimit();  	
 			}

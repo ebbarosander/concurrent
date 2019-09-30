@@ -10,7 +10,13 @@ import java.util.concurrent.CountDownLatch;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
+/**
+* Class working as the view
+* Contains methods for painting the user interface and the falling words
+* 
+* @author Ebba Rosander
+* 
+*/
 public class WordPanel extends JPanel implements Runnable {
 		public static volatile boolean done;
 		private WordRecord[] words;
@@ -29,9 +35,7 @@ public class WordPanel extends JPanel implements Runnable {
 
 		    g.setColor(Color.black);
 		    g.setFont(new Font("Helvetica", Font.PLAIN, 26));
-		   //draw the words
-		   //animation must be added 
-		   
+		  		   
 		    for (int i=0;i<noWords;i++){	
 		    	 synchronized(WordApp.words[i]) {
 		    	g.drawString(words[i].getWord(),words[i].getX(),words[i].getY()+20);  //y-offset for skeleton so that you can see the words	
@@ -64,7 +68,7 @@ public class WordPanel extends JPanel implements Runnable {
 			this.maxY=maxY;		
 		}
 		
-		
+		//Changes what to draw due to that the limit has been reached
 		public void limitReach() {
 			paintnormal = false;
 			repaint();
