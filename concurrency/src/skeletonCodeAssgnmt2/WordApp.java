@@ -201,22 +201,27 @@ private static void start() {
 	tw.start();
 }}
 
+//reset scores to 0
+public static void resetPoints() {
+	score.resetScore();	
+	caught.setText("Caught: "+score.getCaught()+ "  ");
+	missed.setText("Missed: "+score.getMissed()+ "  ");
+	scr.setText("Score:" + score.getScore()+ "    ");
+}
+
 //called upon when end button is pushed and end the game
 public static void end() {
 	for(int i =0; i<words.length;i++) {
 		  words[i].resetWord();
 	  }
-	  gameRunning=false;
+	resetPoints();
+	gameRunning=false;
 	  
 }
 
 //called upon when the word limit is reached and ends the game 
 public static void endLimit() {
-	score.resetScore();	
-	caught.setText("Caught: "+score.getCaught()+ "  ");
-	missed.setText("Missed: "+score.getMissed()+ "  ");
-	scr.setText("Score:" + score.getScore()+ "    ");
-	
+	resetPoints();
     end();
 	w.limitReach();
 }
