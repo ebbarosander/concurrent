@@ -1,5 +1,5 @@
 # Assignment 4 makefile
-# FRBMAR009
+# RSNEBB001
 # 27/09/2019
 
 JAVAC = javac
