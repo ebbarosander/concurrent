@@ -72,8 +72,7 @@ public class WordPanel extends JPanel implements Runnable {
 		public void limitReach() {
 			paintnormal = false;
 			repaint();
-			paintnormal=true;
-		
+					
 		}
 		
 		public void run() {
